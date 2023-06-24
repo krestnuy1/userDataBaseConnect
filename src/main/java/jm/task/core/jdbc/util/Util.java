@@ -1,25 +1,28 @@
 package jm.task.core.jdbc.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+
+import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+
+import java.sql.*;
+
 
 public class Util {
-    private static final String URL = "jdbc:mysql://localhost:3306/?user=root";
+    private static final String URL = "jdbc:mysql://localhost:3306/UsersDB";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Kat$evich!1324";
-    public static void connectToDB() {
-        System.out.println("Connecting database...");
 
-        try  {
-            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
-            if (!connection.isClosed()){
-                System.out.printf("Database connected!");
-            }
+    private Connection connection;
+    public Util() {
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("Успешное подключение к базе данных");
         } catch (SQLException e) {
-            throw new IllegalStateException("Cannot connect the database!", e);
+            System.out.println("Не удалось подключиться к базе данных");
         }
+    }
 
+    public Connection getConnection() {
+        return connection;
     }
 }
