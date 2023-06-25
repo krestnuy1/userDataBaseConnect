@@ -10,7 +10,7 @@ import java.sql.*;
 public class Util {
     private static final String URL = "jdbc:mysql://localhost:3306/UsersDB";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "Kat$evich!1324";
+    private static final String PASSWORD = "root";
 
     private Connection connection;
     public Util() {
