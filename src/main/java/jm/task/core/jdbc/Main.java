@@ -25,8 +25,8 @@ public class Main {
         userDao.removeUserById(1);
         List<User> users = userDao.getAllUsers();
         users.stream().forEach(System.out::println);
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+//        userDao.cleanUsersTable();
+//        userDao.dropUsersTable();
 
 
     }
